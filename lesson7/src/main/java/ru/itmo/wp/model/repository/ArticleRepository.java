@@ -10,5 +10,6 @@ public interface ArticleRepository extends BasicRepository<Article> {
     @Override
     List<Article> findAll();
 
+    void setHiddenProp(long id, boolean hidden);
     public List<Article> findAllByUserId(long id);
 }

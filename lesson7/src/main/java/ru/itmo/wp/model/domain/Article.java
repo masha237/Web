@@ -5,7 +5,25 @@ import java.util.Date;
 
 public class Article extends AbstractModel implements Serializable {
     private long userId;
-    private String text, title;
+    private String text, title, login;
+    private boolean hidden;
+
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public boolean isHidden() {
+        return hidden;
+    }
+
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     public long getUserId() {
         return userId;

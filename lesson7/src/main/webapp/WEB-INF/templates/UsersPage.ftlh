@@ -1,4 +1,6 @@
 <#-- @ftlvariable name="users" type="ru.itmo.wp.model.domain.User[]" -->
+<#-- @ftlvariable name="user" type="ru.itmo.wp.model.domain.User" -->
+
 <#import "commons.ftlh" as c>
 
 <@c.page>
@@ -9,13 +11,15 @@
             <tr>
                 <th>Id</th>
                 <th>Login</th>
+                <th class="admin">Admin</th>
             </tr>
             </thead>
             <tbody>
             <template>
                 <tr>
                     <td class="user-id"></td>
-                    <td class="user_login"></td>
+                    <td class="user-login"></td>
+                    <td class="user-admin"><input class="button" type="button"></td>
                 </tr>
             </template>
             <tr class="noData">
@@ -29,29 +33,43 @@
 
     <script>
         $(function () {
+            const $admin = $(".users .admin");
             const $noData = $(".users .noData");
             $noData.find("td").text("Loading...");
-
+            <#if (!user??) || !user.isAdmin()>
+                $admin.hide();
+            </#if>
             ajax({action: "findAll"},
                 function (response) {
                     response["users"].forEach(function (user) {
                         $noData.hide();
-                        const $tr = $($(".users template").prop("content")).clone();
-                        $tr.find(".user-id").text(user["id"]);
-                        $tr.find(".user_login").text(user["login"]);
-                        $tr.find("tr").attr("data-userId", user["id"]);
-                        $(".users tbody").append($tr);
+                        const tr = $($(".users template").prop("content")).clone();
+                        tr.find(".user-id").text(user["id"]);
+                        tr.find(".user-login").text(user["login"]);
+                        <#if user?? && user.isAdmin()>
+                            var value = (user["isAdmin"] === true ? "Disable" : "Enable");
+                            tr.find(".user-admin .button").attr("value", value);
+                            tr.find(".user-admin .button").attr("userToChange", user["id"]);
+                        <#else>
+                            tr.find(".user-admin").hide();
+                        </#if>
+                        tr.find("tr").attr("data-userId", user["id"]);
+                        $(".users tbody").append(tr);
                     });
-                    $(".users tr").click(function () {
-                        ajax(
-
-                            {
-                                action: "findUser",
-                                userId: $(this).attr("data-userId")
+                    $(".users .user-admin .button").click(function () {
+                        const newValue = $(this).attr("value") === "Enable" ? "Disable" : "Enable";
+                        ajax({
+                                action: "changeAdminProperty",
+                                userToChange: $(this).attr("userToChange"),
+                                newValue: newValue === "Disable"
                             },
                             function (response) {
-                                notify(response["user"].creationTime);
-                            })});
+                                const isAdmin = response["currentAdminProp"];
+                                $(this).attr("userToChange", isAdmin);
+                            });
+                        $(this).attr("value", newValue);
+                        return false;
+                    });
                 });
         })
     </script>

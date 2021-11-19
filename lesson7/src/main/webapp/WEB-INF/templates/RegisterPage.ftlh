@@ -34,7 +34,7 @@
 
         $(function () {
             $(".registration form").submit(function () {
-                let error = $(this).find(".error");
+                const error = $(this).find(".error");
                 ajax({
                     "login": $(this).find("input[name='login']").val(),
                     "password": $(this).find("input[name='password']").val(),

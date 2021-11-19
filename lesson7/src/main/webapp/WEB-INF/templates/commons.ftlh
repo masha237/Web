@@ -38,6 +38,7 @@
             <li><a href="/index">Home</a></li>
             <li><a href="/users">Users</a></li>
             <li><a href="/article">Article</a></li>
+            <li><a href="/myArticles">My articles</a></li>
         </ul>
     </nav>
 </header>

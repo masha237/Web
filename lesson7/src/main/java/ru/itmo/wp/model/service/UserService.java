@@ -2,6 +2,7 @@ package ru.itmo.wp.model.service;
 
 import com.google.common.base.Strings;
 import com.google.common.hash.Hashing;
+import ru.itmo.wp.model.domain.Article;
 import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.exception.ValidationException;
 import ru.itmo.wp.model.repository.UserRepository;
@@ -71,4 +72,19 @@ public class UserService {
     public User findByLoginAndPassword(String login, String password) {
         return userRepository.findByLoginAndPasswordSha(login, getPasswordSha(password));
     }
+
+    public User find(long id) {
+        return userRepository.find(id);
+    }
+
+    public void validateChangeUser(User user, User userToChange) throws ValidationException {
+        if (!user.isAdmin()) {
+            throw new ValidationException("You can't change authorities");
+        }
+    }
+
+    public void setAdminProp(long id, boolean hidden) {
+        userRepository.setAdminProp(id, hidden);
+    }
+
 }

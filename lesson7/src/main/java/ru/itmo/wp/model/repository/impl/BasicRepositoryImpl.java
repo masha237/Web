@@ -88,8 +88,10 @@ public abstract class BasicRepositoryImpl<T extends AbstractModel> implements Ba
                     if (curValue != null) {
                         if (curValue instanceof String) {
                             statement.setString(i, String.valueOf(curValue));
-                        } else {
+                        } else if (curValue instanceof Long) {
                             statement.setLong(i, Long.parseLong(curValue.toString()));
+                        } else {
+                            statement.setBoolean(i, Boolean.getBoolean(curValue.toString()));
                         }
                     }
                 }

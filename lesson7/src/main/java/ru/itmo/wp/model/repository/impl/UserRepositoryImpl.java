@@ -45,6 +45,9 @@ public class UserRepositoryImpl extends BasicRepositoryImpl<User> implements Use
                 case "creationTime":
                     user.setCreationTime(resultSet.getTimestamp(i));
                     break;
+                case "admin":
+                    user.setAdmin(resultSet.getBoolean(i));
+                    break;
                 default:
                     // No operations.
             }
@@ -53,6 +56,22 @@ public class UserRepositoryImpl extends BasicRepositoryImpl<User> implements Use
         return user;
     }
 
+    @Override
+    public void setAdminProp(long id, boolean admin) {
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("UPDATE User SET admin=? WHERE id=?")) {
+                statement.setBoolean(1, admin);
+                statement.setLong(2, id);
+                try {
+                    ResultSet resultSet = statement.executeQuery();
+                } catch (Exception ignored) {
+                    throw new RepositoryException("Unable to set hidden property [id=" + id + "].");
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find Article.", e);
+        }
+    }
     @Override
     public void save(User user, String passwordSha) {
         save(user, "passwordSha", passwordSha);

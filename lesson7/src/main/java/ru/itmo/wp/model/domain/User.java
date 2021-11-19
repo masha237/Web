@@ -5,7 +5,15 @@ import java.util.Date;
 
 public class User extends AbstractModel implements Serializable {
     private String login;
+    private boolean admin;
 
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
     public String getLogin() {
         return login;
     }

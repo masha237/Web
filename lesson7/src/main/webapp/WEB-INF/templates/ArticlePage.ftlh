@@ -42,9 +42,7 @@
                         "title": $(this).find("input[name='title']").val(),
                         "text": $(this).find("textarea[name='text']").val(),
                         "action": "addArticle"
-                    }
-                    ,
-                    function (response) {
+                    },function (response) {
                         if (response["error"]) {
                             error.text(response["error"]);
                         }

@@ -9,4 +9,6 @@ public interface UserRepository extends BasicRepository<User> {
     User findByLogin(String login);
     User findByLoginAndPasswordSha(String login, String passwordSha);
     void save(User user, String passwordSha);
+    void setAdminProp(long id, boolean hidden);
+
 }

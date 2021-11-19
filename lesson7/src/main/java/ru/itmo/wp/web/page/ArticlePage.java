@@ -26,11 +26,12 @@ public class ArticlePage extends Page {
         article.setText(request.getParameter("text"));
         article.setTitle(request.getParameter("title"));
         article.setUserId(getUser().getId());
-
+        article.setLogin(getUser().getLogin());
+        article.setHidden(false);
         articleService.addArticle(article);
 
         setMessage("Article create!");
-        throw new RedirectException("/article");
+        throw new RedirectException("/index");
     }
 
 }
