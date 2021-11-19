@@ -6,8 +6,6 @@ import ru.itmo.wp.model.exception.ValidationException;
 import ru.itmo.wp.web.exception.RedirectException;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ArticlePage extends Page {

@@ -59,7 +59,7 @@
                     $(".users .user-admin .button").click(function () {
                         const newValue = $(this).attr("value") === "Enable" ? "Disable" : "Enable";
                         ajax({
-                                action: "changeAdminProperty",
+                                action: "changeAdminAuthorities",
                                 userToChange: $(this).attr("userToChange"),
                                 newValue: newValue === "Disable"
                             },

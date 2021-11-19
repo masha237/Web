@@ -1,14 +1,10 @@
 package ru.itmo.wp.model.repository.impl;
 
-import ru.itmo.wp.model.database.DatabaseUtils;
 import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.exception.RepositoryException;
 import ru.itmo.wp.model.repository.UserRepository;
 
-import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserRepositoryImpl extends BasicRepositoryImpl<User> implements UserRepository {
 
@@ -57,7 +53,7 @@ public class UserRepositoryImpl extends BasicRepositoryImpl<User> implements Use
     }
 
     @Override
-    public void setAdminProp(long id, boolean admin) {
+    public void setAdminAuthorities(long id, boolean admin) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
             try (PreparedStatement statement = connection.prepareStatement("UPDATE User SET admin=? WHERE id=?")) {
                 statement.setBoolean(1, admin);
@@ -77,8 +73,5 @@ public class UserRepositoryImpl extends BasicRepositoryImpl<User> implements Use
         save(user, "passwordSha", passwordSha);
     }
 
-    private boolean isEmail(String email) {
-        return email.chars().filter(ch -> ch == '@').count() == 1;
-    }
 }
 

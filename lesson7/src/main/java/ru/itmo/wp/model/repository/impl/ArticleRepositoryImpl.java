@@ -1,7 +1,6 @@
 package ru.itmo.wp.model.repository.impl;
 
 import ru.itmo.wp.model.domain.Article;
-import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.exception.RepositoryException;
 import ru.itmo.wp.model.repository.ArticleRepository;
 
@@ -17,7 +16,7 @@ public class ArticleRepositoryImpl extends BasicRepositoryImpl<Article> implemen
     }
 
     @Override
-    public void setHiddenProp(long id, boolean hidden) {
+    public void setHidden(long id, boolean hidden) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
             try (PreparedStatement statement = connection.prepareStatement("UPDATE Article SET hidden=? WHERE id=?")) {
                 statement.setBoolean(1, hidden);

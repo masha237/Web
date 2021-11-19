@@ -1,6 +1,5 @@
 package ru.itmo.wp.model.service;
 
-import com.google.common.base.Strings;
 import ru.itmo.wp.model.domain.Article;
 import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.exception.ValidationException;
@@ -57,7 +56,7 @@ public class ArticleService {
         return articleRepository.find(id);
     }
 
-    public void setHiddenProp(long id, boolean hidden) {
-        articleRepository.setHiddenProp(id, hidden);
+    public void setHidden(long id, boolean hidden) {
+        articleRepository.setHidden(id, hidden);
     }
 }

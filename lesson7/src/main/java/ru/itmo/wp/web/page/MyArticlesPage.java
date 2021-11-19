@@ -25,7 +25,7 @@ public class MyArticlesPage extends Page {
         Article articleToChange = articleService.find(id);
         articleService.validateChangeArticle(user, articleToChange);
         if (articleToChange.isHidden() != newValue) {
-            articleService.setHiddenProp(id, newValue);
+            articleService.setHidden(id, newValue);
         }
         view.put("currentHidProp", newValue);
     }

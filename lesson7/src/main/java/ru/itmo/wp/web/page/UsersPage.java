@@ -1,7 +1,5 @@
 package ru.itmo.wp.web.page;
 
-
-import ru.itmo.wp.model.domain.Article;
 import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.exception.ValidationException;
 
@@ -15,14 +13,14 @@ public class UsersPage extends Page {
         view.put("users", userService.findAll());
     }
 
-    private void changeAdminProperty(HttpServletRequest request, Map<String, Object> view) throws ValidationException {
+    private void changeAdminAuthorities(HttpServletRequest request, Map<String, Object> view) throws ValidationException {
         User user = getUser();
         long id = Long.parseLong(request.getParameter("userToChange"));
         boolean newValue = Boolean.parseBoolean(request.getParameter("newValue"));
         User userToChange = userService.find(id);
-        userService.validateChangeUser(user, userToChange);
+        userService.validateChangeUser(user);
         if (userToChange.isAdmin() != newValue) {
-            userService.setAdminProp(id, newValue);
+            userService.setAdminAuthorities(id, newValue);
         }
         view.put("currentAdminProp", newValue);
     }
