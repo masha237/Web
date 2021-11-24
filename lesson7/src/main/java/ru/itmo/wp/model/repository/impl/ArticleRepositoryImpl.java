@@ -58,9 +58,6 @@ public class ArticleRepositoryImpl extends BasicRepositoryImpl<Article> implemen
                 case "userId":
                     article.setUserId(resultSet.getLong(i));
                     break;
-                case "login":
-                    article.setLogin(resultSet.getString(i));
-                    break;
                 case "creationTime":
                     article.setCreationTime(resultSet.getTimestamp(i));
                     break;

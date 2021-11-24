@@ -41,19 +41,20 @@
             </#if>
             ajax({action: "findAll"},
                 function (response) {
-                    response["users"].forEach(function (user) {
+                    response["users"].forEach(function (iUser) {
                         $noData.hide();
                         const tr = $($(".users template").prop("content")).clone();
-                        tr.find(".user-id").text(user["id"]);
-                        tr.find(".user-login").text(user["login"]);
+                        tr.find(".user-id").text(iUser["id"]);
+                        tr.find(".user-login").text(iUser["login"]);
                         <#if user?? && user.isAdmin()>
-                            var value = (user["isAdmin"] === true ? "Disable" : "Enable");
+
+                            const value = (iUser["admin"] === true ? "Disable" : "Enable");
                             tr.find(".user-admin .button").attr("value", value);
-                            tr.find(".user-admin .button").attr("userToChange", user["id"]);
+                            tr.find(".user-admin .button").attr("userToChange", iUser["id"]);
                         <#else>
                             tr.find(".user-admin").hide();
                         </#if>
-                        tr.find("tr").attr("data-userId", user["id"]);
+                        tr.find("tr").attr("data-userId", iUser["id"]);
                         $(".users tbody").append(tr);
                     });
                     $(".users .user-admin .button").click(function () {

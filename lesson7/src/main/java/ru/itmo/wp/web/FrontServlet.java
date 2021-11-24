@@ -178,6 +178,17 @@ public class FrontServlet extends HttpServlet {
             try {
                 before.invoke(page, request, view);
             } catch (Exception e) {
+                Throwable cause = e.getCause();
+                if (cause instanceof RedirectException) {
+                    RedirectException redirectException = (RedirectException) cause;
+                    if (json) {
+                        view.put("redirect", redirectException.getLocation());
+                        writeJson(response, view);
+                    } else {
+                        response.sendRedirect(redirectException.getLocation());
+                    }
+                    return;
+                }
                 throw new ServletException("Unable to run action [pageClass=" + pageClass + ", method=" + before + "].", e);
             }
         }
