@@ -39,16 +39,19 @@
                 action: "findAllArticlesVisible",
                 url: "/index"
             }, function (response) {
-                // alert(response["articleViews"] === undefined)
-                response["articleViews"].forEach(function (articleView) {
+                if (response["articleViews"].length !== 0) {
                     $noData.hide();
-                    const article = $($(".articles template").prop("content")).clone();
-                    article.find(".title").text(articleView["title"]);
-                    article.find(".body").text(articleView["text"]);
-                    article.find(".creationTime").text(articleView["creationTime"]);
-                    article.find(".information").text("By " + articleView["login"]);
-                    $(".articles").append(article);
-                });
+                    response["articleViews"].forEach(function (articleView) {
+                        const article = $($(".articles template").prop("content")).clone();
+                        article.find(".title").text(articleView["article"].title);
+                        article.find(".body").text(articleView["article"].text);
+                        article.find(".creationTime").text(articleView["article"].creationTime);
+                        article.find(".information").text("By " + articleView["user"].login);
+                        $(".articles").append(article);
+                    });
+                } else {
+                    $noData.text("There are no article.");
+                }
             });
         })
     </script>

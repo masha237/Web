@@ -10,7 +10,9 @@ import ru.itmo.wp.model.repository.impl.UserRepositoryImpl;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-/** @noinspection UnstableApiUsage*/
+/**
+ * @noinspection UnstableApiUsage
+ */
 public class UserService {
     private final UserRepository userRepository = new UserRepositoryImpl();
     private static final String PASSWORD_SALT = "177d4b5f2e4f4edafa7404533973c04c513ac619";
@@ -48,9 +50,6 @@ public class UserService {
         return Hashing.sha256().hashBytes((PASSWORD_SALT + password).getBytes(StandardCharsets.UTF_8)).toString();
     }
 
-    public User findById(long id) {
-        return userRepository.find(id);
-    }
 
     public List<User> findAll() {
         return userRepository.findAll();
@@ -62,14 +61,6 @@ public class UserService {
             throw new ValidationException("Invalid login or password");
         }
         return user;
-    }
-
-    private boolean isEmail(String email) {
-        return email.chars().filter(ch -> ch == '@').count() == 1;
-    }
-
-    public User findByLoginAndPassword(String login, String password) {
-        return userRepository.findByLoginAndPasswordSha(login, getPasswordSha(password));
     }
 
     public User find(long id) {
@@ -85,5 +76,4 @@ public class UserService {
     public void setAdminAuthorities(long id, boolean hidden) {
         userRepository.setAdminAuthorities(id, hidden);
     }
-
 }

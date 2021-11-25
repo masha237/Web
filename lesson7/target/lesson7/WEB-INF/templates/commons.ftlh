@@ -37,7 +37,9 @@
         <ul>
             <li><a href="/index">Home</a></li>
             <li><a href="/users">Users</a></li>
-            <li><a href="/article">Article</a></li>
+            <#if user??>
+                <li class="article"><a href="/article">Article</a></li>
+            </#if>
             <li><a href="/myArticles">My articles</a></li>
         </ul>
     </nav>

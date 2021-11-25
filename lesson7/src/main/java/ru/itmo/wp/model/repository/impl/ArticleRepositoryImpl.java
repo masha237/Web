@@ -15,14 +15,15 @@ public class ArticleRepositoryImpl extends BasicRepositoryImpl<Article> implemen
         super.save(article);
     }
 
+    @SuppressWarnings("SqlNoDataSourceInspection")
     @Override
     public void setHidden(long id, boolean hidden) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement("UPDATE Article SET hidden=? WHERE id=?")) {
+             try (PreparedStatement statement = connection.prepareStatement("UPDATE Article SET hidden=? WHERE id=?")) {
                 statement.setBoolean(1, hidden);
                 statement.setLong(2, id);
                 try {
-                    ResultSet resultSet = statement.executeQuery();
+                    statement.executeQuery();
                 } catch (Exception ignored) {
                     throw new RepositoryException("Unable to set hidden property [id=" + id + "].");
                 }
@@ -73,6 +74,7 @@ public class ArticleRepositoryImpl extends BasicRepositoryImpl<Article> implemen
 
     }
 
+    @SuppressWarnings("SqlNoDataSourceInspection")
     public List<Article> findAllByUserId(long id) {
         List<Article> articles = new ArrayList<>();
         try (Connection connection = DATA_SOURCE.getConnection()) {

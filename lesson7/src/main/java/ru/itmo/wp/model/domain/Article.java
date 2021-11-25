@@ -1,11 +1,11 @@
 package ru.itmo.wp.model.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Article extends AbstractModel implements Serializable {
     private long userId;
-    private String text, title;
+    private String text;
+    private String title;
     private boolean hidden;
 
     public void setHidden(boolean hidden) {
@@ -15,7 +15,6 @@ public class Article extends AbstractModel implements Serializable {
     public boolean isHidden() {
         return hidden;
     }
-
 
     public long getUserId() {
         return userId;

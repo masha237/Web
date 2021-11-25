@@ -52,6 +52,7 @@ public class UserRepositoryImpl extends BasicRepositoryImpl<User> implements Use
         return user;
     }
 
+    @SuppressWarnings("SqlNoDataSourceInspection")
     @Override
     public void setAdminAuthorities(long id, boolean admin) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
@@ -59,7 +60,7 @@ public class UserRepositoryImpl extends BasicRepositoryImpl<User> implements Use
                 statement.setBoolean(1, admin);
                 statement.setLong(2, id);
                 try {
-                    ResultSet resultSet = statement.executeQuery();
+                    statement.executeQuery();
                 } catch (Exception ignored) {
                     throw new RepositoryException("Unable to set hidden property [id=" + id + "].");
                 }

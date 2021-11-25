@@ -22,6 +22,7 @@ public abstract class BasicRepositoryImpl<T extends AbstractModel> implements Ba
         return findBy("id", id);
     }
 
+    @SuppressWarnings("SqlNoDataSourceInspection")
     @Override
     public List<T> findAll() {
         List<T> result = new ArrayList<>();

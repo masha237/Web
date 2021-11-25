@@ -11,5 +11,6 @@ public interface ArticleRepository extends BasicRepository<Article> {
     List<Article> findAll();
 
     void setHidden(long id, boolean hidden);
-    public List<Article> findAllByUserId(long id);
+
+    List<Article> findAllByUserId(long id);
 }

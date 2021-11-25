@@ -7,19 +7,20 @@ import ru.itmo.wp.web.exception.RedirectException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class ArticlePage extends Page {
     private void action(HttpServletRequest request, Map<String, Object> view) {
 
     }
 
     private void addArticle(HttpServletRequest request, Map<String, Object> view) throws ValidationException {
-        articleService.validateArticle(request.getParameter("title"), request.getParameter("text"));
         Article article = new Article();
         article.setText(request.getParameter("text"));
         article.setTitle(request.getParameter("title"));
         article.setUserId(getUser().getId());
         article.setHidden(false);
-        articleService.addArticle(article);
+        articleService.validate(article);
+        articleService.save(article);
 
         setMessage("Article create!");
         throw new RedirectException("/index");

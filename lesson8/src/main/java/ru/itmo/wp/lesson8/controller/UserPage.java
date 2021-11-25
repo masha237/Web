@@ -23,8 +23,10 @@ public class UserPage extends Page {
     }
 
     @GetMapping({ "/user/{id}"})
-    public String userView(@PathVariable Long id, Model model) {
-        model.addAttribute("userView", userService.findById(id));
+    public String userView(@PathVariable String id, Model model) {
+        try {
+            model.addAttribute("userView", userService.findById(Long.parseLong(id)));
+        } catch (Exception ignore) {}
         return "UserPage";
     }
 }

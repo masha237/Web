@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="<@spring.url '/css/style.css'/>">
         <link rel="stylesheet" type="text/css" href="<@spring.url '/css/form.css'/>">
         <link rel="stylesheet" type="text/css" href="<@spring.url '/css/datatable.css'/>">
+        <link rel="stylesheet" type="text/css" href="<@spring.url '/css/user.css'/>">
         <script src="<@spring.url '/js/jquery-3.4.1.min.js'/>"></script>
         <script src="<@spring.url '/js/notify.min.js'/>"></script>
         <script src="<@spring.url '/js/app.js'/>"></script>
@@ -41,18 +42,19 @@
     </header>
     <div class="middle">
         <aside>
-            <section>
-                <div class="header">
-                    Pay attention
-                </div>
-                <div class="body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus enim facere impedit nobis,
-                    nulla placeat quam suscipit unde voluptatibus.
-                </div>
-                <div class="footer">
-                    <a href="#">View all</a>
-                </div>
-            </section>
+            <#list notices as notice>
+                <section>
+                    <div class="header">
+
+                    </div>
+                    <div class="body">
+
+                    </div>
+                    <div class="footer">
+                        <a href="#">View all</a>
+                    </div>
+                </section>
+            </#list>
         </aside>
         <main>
             <#nested/>

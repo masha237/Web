@@ -8,6 +8,7 @@ import ru.itmo.wp.web.exception.RedirectException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class MyArticlesPage extends Page {
     private void action(HttpServletRequest request, Map<String, Object> view) {
         if (getUser() == null) {

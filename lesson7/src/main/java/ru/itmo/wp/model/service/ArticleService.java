@@ -9,44 +9,52 @@ import ru.itmo.wp.model.repository.impl.ArticleRepositoryImpl;
 import ru.itmo.wp.model.repository.impl.UserRepositoryImpl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ArticleService {
     private final ArticleRepository articleRepository = new ArticleRepositoryImpl();
     private final UserRepository userRepository = new UserRepositoryImpl();
 
-    private static class ArticleView extends Article {
-        private String login;
+    public static class ArticleView {
+        private final Article article;
+        private final User user;
 
-        ArticleView(String title, String text, String login, Date time) {
-            this.login = login;
-            setText(text);
-            setTitle(title);
-            setCreationTime(time);
+        private ArticleView(Article article, User user) {
+            this.article = article;
+            this.user = user;
         }
 
-        public void setLogin(String text) {
-            this.login = text;
+        public Article getArticle() {
+            return article;
         }
 
-        public String getLogin() {
-            return login;
+        public User getUser() {
+            return user;
         }
     }
 
-    public void validateArticle(String title, String text) throws ValidationException {
-        if (title == null || title.trim().equals("")) {
+    public void validate(Article article) throws ValidationException {
+        String title = article.getTitle();
+        String text = article.getText();
+
+        if (title == null || title.trim().isEmpty()) {
             throw new ValidationException("Title can not be empty");
         } else if (title.length() > 255) {
-            throw new ValidationException("Title too long");
+            throw new ValidationException("Title can't be longer than 255 characters");
         }
-        if (text == null || text.trim().equals("")) {
+
+        if (text == null || text.trim().isEmpty()) {
             throw new ValidationException("Text can not be empty");
+        } else if (text.length() > 65000) {
+            throw new ValidationException("Text can't be longer than 65000 characters");
+        }
+
+        if (userRepository.find(article.getUserId()) == null) {
+            throw new ValidationException("Can't find user");
         }
     }
 
-    public void addArticle(Article talk) {
+    public void save(Article talk) {
         articleRepository.save(talk);
     }
 
@@ -54,22 +62,17 @@ public class ArticleService {
         return articleRepository.findAllByUserId(id);
     }
 
-    public List<Article> findAll() {
-        return articleRepository.findAll();
-    }
-
     public List<ArticleView> findAllVisible() {
-        /*return findAll();*/
         List<ArticleView> visible = new ArrayList<>();
         List<Article> all = articleRepository.findAll();
-        for (Article article: all) {
+        for (Article article : all) {
             if (!article.isHidden()) {
-                visible.add(new ArticleView(article.getTitle(), article.getText(),
-                        userRepository.find(article.getUserId()).getLogin(), article.getCreationTime()));
+                visible.add(new ArticleView(article, userRepository.find(article.getUserId())));
             }
         }
         return visible;
     }
+
     public void validateChangeArticle(User user, Article article) throws ValidationException {
         if (user.getId() != article.getUserId()) {
             throw new ValidationException("You can't change this article, you are not creator of it.");
