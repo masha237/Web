@@ -1,6 +1,5 @@
 package ru.itmo.wp.model.service;
 
-import ru.itmo.wp.model.domain.AbstractModel;
 import ru.itmo.wp.model.domain.Article;
 import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.exception.ValidationException;
@@ -9,7 +8,6 @@ import ru.itmo.wp.model.repository.UserRepository;
 import ru.itmo.wp.model.repository.impl.ArticleRepositoryImpl;
 import ru.itmo.wp.model.repository.impl.UserRepositoryImpl;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +16,7 @@ public class ArticleService {
     private final ArticleRepository articleRepository = new ArticleRepositoryImpl();
     private final UserRepository userRepository = new UserRepositoryImpl();
 
-    private class ArticleView extends Article {
+    private static class ArticleView extends Article {
         private String login;
 
         ArticleView(String title, String text, String login, Date time) {
@@ -67,7 +65,7 @@ public class ArticleService {
         for (Article article: all) {
             if (!article.isHidden()) {
                 visible.add(new ArticleView(article.getTitle(), article.getText(),
-                        userRepository.find(article.getUserId()).getLogin() ,article.getCreationTime()));
+                        userRepository.find(article.getUserId()).getLogin(), article.getCreationTime()));
             }
         }
         return visible;
