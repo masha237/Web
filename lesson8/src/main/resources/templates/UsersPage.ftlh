@@ -24,6 +24,23 @@
                     <td class="id">${user.id}</td>
                     <td class="login">${user.login}</td>
                     <td class="creationTime">${user.creationTime}</td>
+                    <#if loggedUser??>
+                        <td class="disabled">
+                            <form method="post" action="">
+                                <input type="hidden" name="action" value="users/all">
+                                <div class="button-field">
+                                    <input type="hidden" id="userId" name="userId" value="${user.id}">
+                                    <#if user.disabled>
+                                        <input type="hidden" id="newValue" name="newValue" value="false">
+                                        <input type="submit" value="Enable">
+                                    <#else>
+                                        <input type="hidden" id="newValue" name="newValue" value="true">
+                                        <input type="submit" value="Disable">
+                                    </#if>
+                                </div>
+                            </form>
+                        </td>
+                    </#if>
                 </tr>
                 </#list>
             </#if>

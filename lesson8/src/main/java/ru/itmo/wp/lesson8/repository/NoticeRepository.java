@@ -11,6 +11,6 @@ import ru.itmo.wp.lesson8.domain.User;
 import java.util.List;
 
 @Repository
-public interface NoticeRepository extends JpaRepository<User, Long> {
-    List<Notice> findAllByOrderByIdDesc();
+public interface NoticeRepository extends JpaRepository<Notice, Long> {
+    List<Notice> findAllByOrderByCreationTimeDesc();
 }

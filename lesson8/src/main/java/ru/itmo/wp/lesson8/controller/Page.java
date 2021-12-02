@@ -27,7 +27,7 @@ public class Page {
     }
 
     @ModelAttribute("notices")
-    public List<Notice> getNotice(HttpSession httpSession) {
+    public List<Notice> getNotice() {
         return noticeService.findAll();
     }
 
@@ -36,6 +36,10 @@ public class Page {
         String message = (String) httpSession.getAttribute(MESSAGE_SESSION_KEY);
         httpSession.removeAttribute(MESSAGE_SESSION_KEY);
         return message;
+    }
+
+    void putMessage(HttpSession httpSession, String message) {
+        httpSession.setAttribute(MESSAGE_SESSION_KEY, message);
     }
 
     protected void setUser(HttpSession httpSession, User user) {

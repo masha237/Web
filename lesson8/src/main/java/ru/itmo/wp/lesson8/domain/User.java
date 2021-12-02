@@ -28,6 +28,18 @@ public class User {
     @CreationTimestamp
     private Date creationTime;
 
+    @NotNull
+    @Column(columnDefinition = "boolean default false")
+    private boolean disabled;
+
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    public boolean isDisabled() {
+        return disabled;
+    }
+
     public long getId() {
         return id;
     }

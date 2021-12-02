@@ -3,6 +3,7 @@ package ru.itmo.wp.lesson8.domain;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -22,7 +23,7 @@ public class Notice {
 
     @Lob
     @NotNull
-    @NotEmpty
+    @NotBlank
     private String content;
 
     public String getContent() {
@@ -31,5 +32,21 @@ public class Notice {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Date getCreationTime() {
+        return creationTime;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setCreationTime(Date creationTime) {
+        this.creationTime = creationTime;
     }
 }
