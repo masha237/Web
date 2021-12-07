@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.itmo.wp.domain.Comment;
 import ru.itmo.wp.domain.Post;
 import ru.itmo.wp.domain.User;
-import ru.itmo.wp.form.UserCredentials;
 import ru.itmo.wp.security.Guest;
 import ru.itmo.wp.service.PostService;
 

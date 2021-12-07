@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="488a208e-cd76-43c4-a47e-f3227931acab" name="Changes" comment="add">
-      <change beforePath="$PROJECT_DIR$/../lesson8/src/main/resources/templates/NoticePage.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson8/src/main/resources/templates/NoticePage.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson7/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/PostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/PostPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/repository/CommentRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/repository/TagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/PostPage.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/PostPage.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/commons.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/commons.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/controller/PostPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/controller/PostPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Tag$Name.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Tag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/repository/TagRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/repository/TagRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/PostPage.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/PostPage.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/commons.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/commons.ftlh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +146,7 @@
       <workItem from="1638380355262" duration="39000" />
       <workItem from="1638380416784" duration="18973000" />
       <workItem from="1638451344849" duration="7000" />
+      <workItem from="1638882374295" duration="206000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1638409877595</created>
@@ -214,17 +203,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/PostPage.java</url>
-          <line>31</line>
+          <line>30</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/PostPage.java</url>
-          <line>30</line>
+          <line>29</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/PostPage.java</url>
-          <line>46</line>
+          <line>45</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
