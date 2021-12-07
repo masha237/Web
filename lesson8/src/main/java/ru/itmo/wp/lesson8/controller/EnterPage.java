@@ -46,7 +46,7 @@ public class EnterPage extends Page {
         }
         User user = userService.findByLoginAndPassword(enterForm.getLogin(), enterForm.getPassword());
         if (user.isDisabled()) {
-            putMessage(httpSession, "This user is disabled");
+            putMessage(httpSession);
             return "redirect:/";
         }
         setUser(httpSession, user);

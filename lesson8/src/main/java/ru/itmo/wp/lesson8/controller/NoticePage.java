@@ -3,13 +3,10 @@ package ru.itmo.wp.lesson8.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itmo.wp.lesson8.form.NoticeCreationForm;
-import ru.itmo.wp.lesson8.form.UserCredentials;
 import ru.itmo.wp.lesson8.service.NoticeService;
 
 import javax.servlet.http.HttpSession;

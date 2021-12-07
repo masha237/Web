@@ -1,8 +1,5 @@
 package ru.itmo.wp.lesson8.form;
 
-
-import ru.itmo.wp.lesson8.domain.Notice;
-
 import javax.validation.constraints.*;
 
 public class NoticeCreationForm {

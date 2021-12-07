@@ -38,8 +38,8 @@ public class Page {
         return message;
     }
 
-    void putMessage(HttpSession httpSession, String message) {
-        httpSession.setAttribute(MESSAGE_SESSION_KEY, message);
+    void putMessage(HttpSession httpSession) {
+        httpSession.setAttribute(MESSAGE_SESSION_KEY, "This user is disabled");
     }
 
     protected void setUser(HttpSession httpSession, User user) {
