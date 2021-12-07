@@ -11,6 +11,7 @@ import ru.itmo.wp.domain.Comment;
 import ru.itmo.wp.domain.Post;
 import ru.itmo.wp.domain.User;
 import ru.itmo.wp.form.UserCredentials;
+import ru.itmo.wp.security.Guest;
 import ru.itmo.wp.service.PostService;
 
 import javax.servlet.http.HttpSession;
@@ -24,12 +25,13 @@ public class PostPage extends Page {
         this.postService = postService;
     }
 
-
+    @Guest
     @GetMapping({ "/post/{postId}"})
-    public String postGet(@PathVariable String postId, Model model) {
+    public String postGet(@PathVariable String postId, Model model, HttpSession httpSession) {
         try {
             long id = Long.parseLong(postId);
             model.addAttribute("post", postService.findById(id));
+            model.addAttribute("logginedUser", getUser(httpSession));
             model.addAttribute("comment", new Comment());
         } catch (NumberFormatException ignored) {
         }

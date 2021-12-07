@@ -94,9 +94,10 @@
         <div class="title"><a href="/post/${post.id}">${post.title}</a></div>
         <div class="information">By ${post.user.login}, ${post.creationTime}</div>
         <div class="body">${post.text}</div>
-        <ul class="Tags">
+
+        <ul class="tags">
                 <#list post.tags as tag>
-                    ${tag.name}
+                    <div class="tag">${tag.name}</div>
                 </#list>
         </ul>
         <div class="footer">

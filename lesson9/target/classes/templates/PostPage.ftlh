@@ -5,6 +5,8 @@
 <@c.page>
     <#if post??>
         <@c.post post=post/>
+        <#if logginedUser??>
+
         <div class="form">
             <div class="header">Add Comment</div>
             <div class="body">
@@ -25,6 +27,8 @@
                 </form>
             </div>
         </div>
+
+        </#if>
         <@c.comments post/>
     <#else>
         <h1>

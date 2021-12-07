@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -24,6 +25,7 @@ public class Notice {
     @Lob
     @NotNull
     @NotBlank
+    @Size(min = 1, max = 100)
     private String content;
 
     public String getContent() {

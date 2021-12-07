@@ -1,7 +1,9 @@
 package ru.itmo.wp.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(
@@ -13,14 +15,15 @@ public class Tag {
     private long id;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private Name name;
+    @NotBlank
+    @Size(min = 1, max = 60)
+    private String name;
 
     /** @noinspection unused*/
     public Tag() {
     }
 
-    public Tag(@NotNull Name name) {
+    public Tag(@NotNull String name) {
         this.name = name;
     }
 
@@ -32,16 +35,11 @@ public class Tag {
         this.id = id;
     }
 
-    public Name getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Name name) {
+    public void setName(String name) {
         this.name = name;
-    }
-
-    public enum Name {
-        OLYMPIAD,
-        EDUCATION
     }
 }

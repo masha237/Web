@@ -28,12 +28,18 @@ public class UsersPage extends Page {
     }
 
     @PostMapping("/users/all")
-    public String changeDisabled(@ModelAttribute("userId") String userId, @ModelAttribute("newValue") String newValue) {
+    public String changeDisabled(@ModelAttribute("userId") String userId, @ModelAttribute("newValue") String newValue, HttpSession httpSession) {
         try {
             long id = Long.parseLong(userId);
             boolean value = Boolean.parseBoolean(newValue);
-            userService.setDisabled(id, value);
+            if (getUser(httpSession) != null && !getUser(httpSession).isDisabled()) {
+                userService.setDisabled(id, value);
+                setMessage(httpSession, "Congrats, you set status " + newValue + " to " + id);
+            } else {
+                setMessage(httpSession, "You are disable");
+            }
         } catch (NumberFormatException ignored) {
+            setMessage(httpSession, userId + "is invalid Id");
             // No operations.
         }
         return "redirect:/users/all";

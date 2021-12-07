@@ -80,3 +80,15 @@ main article .footer .positive-score {
     font-weight: bold;
     line-height: 1.75rem;
 }
+
+main article .tags {
+    display: block;
+}
+
+main article .tags .tag {
+    display: inline;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--border-color);
+    padding: 0.3rem;
+}

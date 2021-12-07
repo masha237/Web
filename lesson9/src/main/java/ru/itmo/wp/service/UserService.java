@@ -30,12 +30,6 @@ public class UserService {
                 roleRepository.save(new Role(name));
             }
         }
-
-        for (Tag.Name name : Tag.Name.values()) {
-            if (tagRepository.countByName(name) == 0) {
-                tagRepository.save(new Tag(name));
-            }
-        }
     }
 
     public User register(UserCredentials userCredentials) {

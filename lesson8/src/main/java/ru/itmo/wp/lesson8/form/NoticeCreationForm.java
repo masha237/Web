@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 public class NoticeCreationForm {
     @NotNull
     @NotBlank
-    @Size(max = 65000)
+    @Size(max = 100)
     private String content;
 
     public String getContent() {

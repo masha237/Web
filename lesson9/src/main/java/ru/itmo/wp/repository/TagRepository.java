@@ -5,5 +5,4 @@ import ru.itmo.wp.domain.Role;
 import ru.itmo.wp.domain.Tag;
 
 public interface TagRepository extends JpaRepository<Tag, Long> {
-    int countByName(Tag.Name name);
 }
