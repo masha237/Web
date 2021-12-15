@@ -5,7 +5,7 @@
 <@c.page>
     <#if post??>
         <@c.post post=post/>
-        <#if logginedUser??>
+        <#if user??>
 
         <div class="form">
             <div class="header">Add Comment</div>

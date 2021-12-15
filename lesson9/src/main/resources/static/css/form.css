@@ -24,6 +24,7 @@
     float: left;
     text-align: right;
     padding-right: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .form-box .field .value {
@@ -68,6 +69,7 @@
 }
 
 .form .field .name {
+    margin-bottom: 0.5rem;
 }
 
 .form .field .value {

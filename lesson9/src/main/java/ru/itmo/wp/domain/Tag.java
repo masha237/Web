@@ -1,15 +1,18 @@
 package ru.itmo.wp.domain;
 
+import org.apache.logging.log4j.util.PropertySource;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Comparator;
 
 @Entity
 @Table(
         uniqueConstraints = @UniqueConstraint(columnNames = "name")
 )
-public class Tag {
+public class Tag implements Comparable<Tag>{
     @Id
     @GeneratedValue
     private long id;
@@ -41,5 +44,10 @@ public class Tag {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Tag tag) {
+        return Long.compare(id, tag.id);
     }
 }

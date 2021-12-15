@@ -3,6 +3,7 @@ package ru.itmo.wp.service;
 import org.springframework.stereotype.Service;
 import ru.itmo.wp.domain.Post;
 import ru.itmo.wp.domain.Role;
+import ru.itmo.wp.domain.Tag;
 import ru.itmo.wp.domain.User;
 import ru.itmo.wp.form.UserCredentials;
 import ru.itmo.wp.repository.RoleRepository;
@@ -14,12 +15,14 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final TagRepository tagRepository;
 
     /** @noinspection FieldCanBeLocal, unused */
     private final RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository, TagRepository tagRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.tagRepository = tagRepository;
 
         this.roleRepository = roleRepository;
         for (Role.Name name : Role.Name.values()) {
@@ -53,7 +56,16 @@ public class UserService {
         return userRepository.findAllByOrderByIdDesc();
     }
 
-    public void writePost(User user, Post post) {
+    public void writePost(User user, Post post, String inputTags) {
+        List<String> tagsArray = TagService.parseTags(inputTags);
+        for (String tagName : tagsArray) {
+            Tag tag = tagRepository.findByName(tagName);
+            if (tag == null) {
+                tagRepository.save(new Tag(tagName));
+                tag = tagRepository.findByName(tagName);
+            }
+            post.addTag(tag);
+        }
         user.addPost(post);
         userRepository.save(user);
     }

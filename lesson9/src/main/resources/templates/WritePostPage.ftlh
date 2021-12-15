@@ -1,4 +1,5 @@
 <#-- @ftlvariable name="post" type="ru.itmo.wp.domain.Post" -->
+<#-- @ftlvariable name="inputTags" type="java.lang.String" -->
 
 <#import "/spring.ftl" as spring>
 <#import "commons.ftlh" as c>
@@ -26,6 +27,15 @@
                         <textarea id="text" name="text">${post.text!}</textarea>
                     </div>
                     <@c.error "post.text"/>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        <label for="inputTags">Tags</label>
+                    </div>
+                    <div class="value">
+                        <input id="inputTags" name="inputTags" value="${inputTags!}"/>
+                    </div>
+                    <@c.error "inputTags"/>
                 </div>
                 <div class="button-field">
                     <input type="submit" value="Write">

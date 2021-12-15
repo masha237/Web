@@ -30,7 +30,6 @@ public class PostPage extends Page {
         try {
             long id = Long.parseLong(postId);
             model.addAttribute("post", postService.findById(id));
-            model.addAttribute("logginedUser", getUser(httpSession));
             model.addAttribute("comment", new Comment());
         } catch (NumberFormatException ignored) {
         }

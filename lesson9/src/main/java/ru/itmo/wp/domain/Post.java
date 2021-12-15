@@ -34,12 +34,13 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
+    @OrderBy("name")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "post_tag",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private Set<Tag> tags;
+    private Set<Tag> tags = new TreeSet<>();
 
     public Set<Tag> getTags() {
         return tags;
@@ -95,6 +96,10 @@ public class Post {
     public void addComment(Comment comment) {
         comment.setPost(this);
         getComments().add(comment);
+    }
+
+    public void addTag(Tag tag) {
+        getTags().add(tag);
     }
 
     public List<Comment> getComments() {
