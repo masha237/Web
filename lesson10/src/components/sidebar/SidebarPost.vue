@@ -1,26 +1,27 @@
 <template>
-  <section>
-    <div class="header">
-      {{ post.title }}
-    </div>
-    <div class="body">
-      {{ post.text }}
-    </div>
-    <div class="footer">
-      <a href="#">View all</a>
-    </div>
-  </section>
+    <section>
+        <div class="header">
+            {{ post.title }}
+        </div>
+        <div class="body">
+            {{ post.text }}
+        </div>
+        <div class="footer">
+            <a href="#" @click.prevent="viewPost(post.id)">View all</a>
+        </div>
+    </section>
 </template>
 
 <script>
 export default {
-  name: "SidebarPost",
-  props: ["post"]
+    name: "SidebarPost",
+    props: ["post"],
+    inject: ["viewPost"]
 }
 </script>
 
 <style scoped>
 section {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 </style>

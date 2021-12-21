@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <Header :user="users[userId]"/>
-        <Middle :posts="posts" :users="users" :comments="comments"/>
+        <Middle :posts="posts" :users="users" :postsComments="postsComments"/>
 
         <Footer :postsCount="getLength(posts)" :usersCount="getLength(users)"/>
     </div>
@@ -20,16 +20,29 @@ export default {
         Header
     },
     data: function () {
+        let postsComments = Object.values(this.$root.$data.posts).reduce((obj, post) => ({...obj, [post.id]: []}), {});
+        Object.values(this.$root.$data.comments).forEach(comment => {
+            postsComments[comment.postId].push(comment);
+        });
+        this.$root.$data["postsComments"] = postsComments;
         return this.$root.$data;
     },
     provide() {
         return {
             getLength: this.getLength,
+            viewComment: this.viewComment,
+            viewPost: this.viewPost
         }
     },
     methods: {
         getLength(array) {
             return Object.keys(array).length;
+        },
+        viewComment: function (post) {
+            return Object.values(this.comments).filter(c => c.postId === post.id).sort((a, b) => a.id - b.id);
+        },
+        viewPost: function (idPost) {
+                this.$root.$emit("viewPost", idPost);
         }
     },
     beforeCreate() {

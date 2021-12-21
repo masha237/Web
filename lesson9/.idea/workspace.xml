@@ -5,33 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="488a208e-cd76-43c4-a47e-f3227931acab" name="Changes" comment="add">
-      <change afterPath="$PROJECT_DIR$/../lesson10/src/components/page/Register.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lesson10/src/components/page/Users.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lesson10/src/components/page/Viewers/FullPost.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lesson10/src/components/page/Viewers/UserInTable.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lesson10/src/components/page/Viewers/ViewComment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/form/validator/TagValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/service/TagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson10/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson10/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson10/src/components/Middle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson10/src/components/Middle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson10/src/components/page/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson10/src/components/page/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson10/src/components/page/Viewers/FullPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson10/src/components/page/Viewers/FullPost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson10/src/components/sidebar/SidebarPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson10/src/components/sidebar/SidebarPost.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/PostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/PostPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/WritePostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/controller/WritePostPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/domain/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/repository/TagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/wp/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/PostPage.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/PostPage.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/WritePostPage.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/WritePostPage.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/controller/PostPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/controller/PostPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/controller/WritePostPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/controller/WritePostPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/domain/Tag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/repository/TagRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/repository/TagRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/wp/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/wp/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/PostPage.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/PostPage.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/WritePostPage.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/WritePostPage.ftlh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,14 +75,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../11/backend/pom.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -170,6 +150,8 @@
       <workItem from="1638451344849" duration="7000" />
       <workItem from="1638882374295" duration="11277000" />
       <workItem from="1639052479096" duration="2652000" />
+      <workItem from="1639591417097" duration="135000" />
+      <workItem from="1639598673037" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1638409877595</created>

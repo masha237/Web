@@ -1,8 +1,8 @@
 <template>
     <div>
         <article>
-            <div class="title"><a href="#" @click.prevent="viewPost(post.id)">{{post.title}}</a></div>
-            <div class="information">By {{users[post.userId].name}}, 5 дней назад</div>
+            <div class="title">{{post.title}}</div>
+            <div class="information">By {{post.user.name}}, 5 дней назад</div>
             <div class="body">{{post.text}}</div>
 
             <div class="footer">
@@ -15,25 +15,23 @@
                     <a href="#"><img src="../../../assets/img/date_16x16.png" title="Publish Time" alt="Publish Time"/></a>
                     5 дней назад
                     <a href="#"><img src="../../../assets/img/comments_16x16.png" title="Comments" alt="Comments"/></a>
-                    <a href="#">{{getLength(comments)}}</a>
+<!--                    <a href="#">{{getLength(comments)}}</a>-->
                 </div>
             </div>
         </article>
-        <template v-if="viewComments">
+<!--        <template v-if="viewComments">
             <div>
                 <ViewComment v-for="comment in comments" :comment="comment" :users="users" :key="comment.id"/>
             </div>
-        </template>
+        </template>-->
     </div>
 </template>
 
 <script>
-import ViewComment from "@/components/page/Viewers/ViewComment";
 export default {
     name: "FullPost",
-    components: {ViewComment},
-    props: ["post", "comments", "users", "viewComments"],
-    inject: ["getLength", "viewPost"],
+    props: ["post", "users", "viewComments"],
+    inject: ["getLength"]
 }
 </script>
 
