@@ -1,0 +1,29 @@
+:root {
+    --table-color: #E1E1E1;
+    --gradient-color: #f8f8f8;
+}
+main .datatable .caption {
+    border: 1px solid var(--table-color);
+    background-color: var(--table-color);
+    padding: 0.25rem 0 0.25rem 0.5rem;
+    position: relative;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+main table {
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0;
+}
+
+main .datatable th,
+main .datatable td {
+    border: 1px solid var(--table-color);
+    padding: .4em;
+    text-align: center;
+}
+
+main .datatable tbody tr:nth-child(2n-1) {
+    background-color: var(--gradient-color);
+}
