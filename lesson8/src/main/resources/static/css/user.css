@@ -1,0 +1,44 @@
+:root {
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+    color: rgb(34, 34, 34);
+
+    --border-color: rgb(185, 185, 185);
+    --border: 1px solid var(--border-color);
+    --border-radius: 6px;
+    --caption-color: #3B5998;
+}
+
+.user_interpretation .user_block {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    overflow: auto;
+    position: relative;
+}
+
+.user_interpretation .user_block img {
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    top: 0.3rem;
+    right: 0.5rem;
+}
+
+.user_interpretation .user_block .username {
+    margin-left: 0.5rem;
+    margin-top: 0.25rem;
+    font-size: x-large;
+}
+
+.user_interpretation .arrows {
+    font-size: xx-large;
+}
+
+.user_interpretation .arrows a {
+    color: var(--caption-color);
+    text-decoration: none;
+}
+
+.user_interpretation .arrows p {
+    display: inline;
+}
